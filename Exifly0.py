@@ -2,7 +2,7 @@ from PIL import Image
 import piexif
 
 
-imagename = 'someimage.jpeg'
+imagename = 'testimage.jpeg'
 
 filename = Image.open(imagename)
 filename.show()
