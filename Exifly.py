@@ -1,17 +1,27 @@
-import os,sys
+import os
+import subprocess
 from PIL import Image
-from PIL.ExifTags import TAGS
 
-img = Image.open('testimage.jpg')
+fileinput = raw_input("Enter name of file (example.jpg) : ")
+filedisp = Image.open(fileinput)
+filedisp.show()
+filesubject = raw_input("Enter the photo's subject: ")
+filelocation = raw_input("Enter a location tag: ")
 
-def get_exif(imagename):
 
-    filename.show()
-    exifAsDictionary = {}
-    info = filename._getexif()
-    for tag, value in info.items():
-        decoded = TAGS.get(tag, tag)
-        exifAsDictionary[decoded] = value
-    return exifAsDictionary
 
-get_exif(filename)
+
+def trim_filename(s,n):
+        return s[n:]
+
+
+def get_exif(inputname):
+        exifdata = subprocess.check_output(["exiftool", inputname])
+        exif = exifdata.splitlines()
+        for item in exif:
+                if 'Date/Time Original' in item:
+                        filename = item
+                        updatename = trim_filename(filename,34)+' - '+filesubject+' - '+filelocation
+                        os.rename(fileinput, updatename)
+
+get_exif(fileinput)
