@@ -6,7 +6,7 @@ Currently designed & tested for use on Linux/OS X with JPEG format, but potentia
 
 ## Depends on:
 
-* Python 2.7
-* Python `Pillow` (`PIL` fork) library
-* Python `subprocess` module
-* `exiftool` command-line application
+* [Python 2.7](https://www.python.org/download/releases/2.7/)
+* Python [Pillow](https://python-pillow.org) (`PIL` fork) library
+* Python [subprocess](https://docs.python.org/2/library/subprocess.html) module
+* [exiftool](http://www.sno.phy.queensu.ca/~phil/exiftool/exiftool_pod.html)` command-line application
