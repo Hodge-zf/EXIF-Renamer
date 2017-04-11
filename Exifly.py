@@ -18,8 +18,11 @@ def get_exif(input_name):
         exif = exif_data.splitlines()
         for item in exif:
                 if 'Date/Time Original' in item:
-                        filename = item
-                        updatename = trim_filename(filename, 34)+' - '+File_Subject+' - ('+File_Location+')'
-                        os.rename(os.path.abspath(File_Input), updatename)
+                        try:
+                                filename = item
+                                updatename = trim_filename(filename, 34)+' - '+File_Subject+' - ('+File_Location+')'
+                                os.rename(os.path.abspath(File_Input), updatename)
+                        except OSError:
+                                print ''
 
 get_exif(File_Input)
