@@ -23,6 +23,6 @@ def get_exif(input_name):
                                 updatename = trim_filename(filename, 34)+' - '+File_Subject+' - ('+File_Location+')'
                                 os.rename(os.path.abspath(File_Input), updatename)
                         except OSError:
-                                print ''
+                                pass
 
 get_exif(File_Input)
